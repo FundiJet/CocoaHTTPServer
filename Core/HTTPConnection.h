@@ -38,29 +38,29 @@
 	dispatch_queue_t connectionQueue;
 	GCDAsyncSocket *asyncSocket;
 	HTTPConfig *config;
-	
+
 	BOOL started;
-	
+
 	HTTPMessage *request;
 	unsigned int numHeaderLines;
-	
+
 	BOOL sentResponseHeaders;
-	
+
 	NSString *nonce;
 	long lastNC;
-	
+
 	NSObject<HTTPResponse> *httpResponse;
-	
+
 	NSMutableArray *ranges;
 	NSMutableArray *ranges_headers;
 	NSString *ranges_boundry;
 	int rangeIndex;
-	
+
 	UInt64 requestContentLength;
 	UInt64 requestContentLengthReceived;
 	UInt64 requestChunkSize;
 	UInt64 requestChunkSizeReceived;
-  
+
 	NSMutableArray *responseDataSizes;
 }
 
@@ -86,6 +86,7 @@
 - (NSDictionary *)parseGetParams;
 
 - (NSString *)requestURI;
+- (HTTPMessage *)request;
 
 - (NSArray *)directoryIndexFileNames;
 - (NSString *)filePathForURI:(NSString *)path;
